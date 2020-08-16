@@ -1,17 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import TemporaryDrawer from 'components/SideNavigationBar';
-// import TemporaryDrawer from './components/SideNavigationBar';
-
+import { StylesProvider } from '@material-ui/styles';
+import Directory from 'containers/Directory';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <TemporaryDrawer/>
-      </header>
-    </div>
+    <StylesProvider injectFirst>
+       <Directory />
+    </StylesProvider>
   );
 }
 
