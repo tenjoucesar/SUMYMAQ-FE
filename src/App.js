@@ -1,4 +1,5 @@
 import React from 'react';
+import 'fontsource-roboto';
 import { StylesProvider } from '@material-ui/styles';
 import Directory from 'containers/Directory';
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import SideNavigationBar from 'components/SideNavigationBar';
 import StepsIndicator from 'components/StepsIndicator';
+import CreateClient from 'components/CreateClient';
 
 function Directory () {
 
@@ -9,6 +10,7 @@ function Directory () {
       <SideNavigationBar/>
       <div>
         <StepsIndicator />
+        <CreateClient subscription={{ submitting: true, pristine: true }}/>
       </div>
     </div>
   );
