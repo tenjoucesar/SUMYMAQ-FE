@@ -5,6 +5,8 @@ import FormTextField from 'components/Form/Input';
 import { CloudUpload, Delete } from '@material-ui/icons';
 import { Form, Field } from 'react-final-form'
 import { required, composeValidators, mustBeNumber, validPhoneNumber } from '../Form/validations';
+import { CLIENTS_API } from 'utils/api';
+import { formatData } from './ultis';
 
 const StyledForm = styled.form`
   align-items: center;
@@ -19,14 +21,37 @@ const StyledButton = styled(Button)`
 `;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+function createClientForm({subscription}) {
 
-const onSubmit = async values => {
-  await sleep(300)
-  window.alert(JSON.stringify(values, 0, 2))
-}
+  const onSubmit = async (values, form) => {
+    await sleep(300)
+    debugger;
+    window.alert(JSON.stringify(values, 0, 2));
+    createClient(values, form);
+  }
 
-const MyForm = ({ subscription }) => (
-  <Form
+  function createClient(values, form) {
+    const fortmatedClientValues = formatData(values);
+    const parsedValues = JSON.stringify(fortmatedClientValues);
+    debugger;
+
+    fetch(CLIENTS_API, {
+      method: 'POST',
+      body: parsedValues,
+      headers: { 'Content-Type': 'application/json',},
+      }).then(response => response.json())
+      .catch((error) => { throw error; });
+      debugger;
+      form.reset(form.initialValues);
+    }
+
+  // useEffect(() => {
+  // }, [])
+
+  // const onSumbit = { restart } => setTimeout(() => restart())
+
+  return(
+    <Form
     onSubmit={onSubmit}
     subscription={subscription}
     render={({ handleSubmit, form, submitting, pristine, values }) => (
@@ -37,7 +62,7 @@ const MyForm = ({ subscription }) => (
         <Field name="firstName" component={FormTextField} label='Nombre y Apellidos' type='text' validate={required} />
         <Field name="mail" component={FormTextField} label='Correo Electronico' type='text' validate={required} />
         <Field name="phone" component={FormTextField} label='Telefono' type='number' validate={composeValidators(required, mustBeNumber, validPhoneNumber)}/>
-        <Field name="Address" component={FormTextField} label='Dirección' type='text' multiline rows={4} validate={required} />
+        <Field name="address" component={FormTextField} label='Dirección' type='text' multiline rows={4} validate={required} />
         <div>
           <StyledButton
             variant="contained"
@@ -64,6 +89,7 @@ const MyForm = ({ subscription }) => (
       </StyledForm>
     )}
   />
-)
+  )
+}
 
-export default MyForm;
+export default createClientForm;

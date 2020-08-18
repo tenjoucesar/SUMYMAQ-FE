@@ -1,9 +1,5 @@
 import React from 'react';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import {List, Divider, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import {Contacts, FindInPage, NoteAdd, PersonAdd } from '@material-ui/icons';
 import styled from 'styled-components';
 
