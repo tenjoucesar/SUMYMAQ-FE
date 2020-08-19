@@ -8,8 +8,8 @@ function ClientsList() {
 
   useEffect(() => {
     async function fetchClients() {
-      const results = await fetch(CLIENTS_API, { method: 'GET', }).then(response => response.json());
-      setClients(results);
+      // const results = await fetch(CLIENTS_API, { method: 'GET', }).then(response => response.json());
+      // setClients(results);
     }
     fetchClients();
   }, [])
@@ -23,7 +23,7 @@ function ClientsList() {
         </Avatar>
       </ListItemAvatar>
       <ListItemText primary={client.name} />
-    </ListItem>
+  </ListItem>
   ));
 
   return (
