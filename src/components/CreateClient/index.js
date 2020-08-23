@@ -45,10 +45,10 @@ function createClientForm({subscription}) {
         <Typography variant="h2">
           Ingresa los datos del cliente
         </Typography>
-        <Field name="name" component={FormTextField} label='Nombre y Apellidos' type='text' validate={required} />
-        <Field name="mail" component={FormTextField} label='Correo Electronico' type='text' validate={required} />
-        <Field name="phone" component={FormTextField} label='Telefono' type='number' validate={composeValidators(required, mustBeNumber, validPhoneNumber)}/>
-        <Field name="address" component={FormTextField} label='Dirección' type='text' multiline rows={4} validate={required} />
+        <Field name="name" component={FormTextField} label='Nombre y Apellidos' type='text' required validate={required} />
+        <Field name="mail" component={FormTextField} label='Correo Electronico' type='text' required validate={required} />
+        <Field name="phone" component={FormTextField} label='Telefono' type='number' required validate={composeValidators(required, mustBeNumber, validPhoneNumber)}/>
+        <Field name="address" component={FormTextField} label='Dirección' type='text' multiline rows={4} required validate={required} />
         <div>
           <StyledButton
             variant="contained"
@@ -56,7 +56,7 @@ function createClientForm({subscription}) {
             size="large"
             endIcon={<CloudUpload/>}
             type="submit"
-            disabled={submitting}
+            disabled={submitting || pristine}
           >
             Send
           </StyledButton>

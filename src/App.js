@@ -5,6 +5,8 @@ import { StylesProvider } from '@material-ui/styles';
 import Directory from 'containers/Directory';
 import Login from 'containers/Login';
 import Signup from 'containers/Signup';
+import Logout from 'containers/Logout';
+import ProtectedRoute from 'components/ProtectedRoute';
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       <StylesProvider injectFirst>
         <Switch>
           <Route path="/register" component={Signup} />
-          <Route path="/clients" component={Directory} />
+          <ProtectedRoute path="/clients" component={Directory} />
+          <Route path="/logout" component={Logout} />
           <Route path="/" component={Login} />
         </Switch>
       </StylesProvider>

@@ -40,7 +40,7 @@ function Directory () {
     )
   }
   return (
-    <div style={{display: 'flex', }}>
+    <div   style={{display: 'flex', }}>
       <SideNavigationBar/>
       <div>
         <StepsIndicator />

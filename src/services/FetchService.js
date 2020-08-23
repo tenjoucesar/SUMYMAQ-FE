@@ -1,13 +1,8 @@
 
-
-
-async function request(url, params, method = 'GET', useJwt) {
-  debugger;
+async function request(url, params, method = 'GET') {
   const options = {
     method,
-    headers: {
-      'Content-Type': 'application/json',
-    }
+    headers: {'Content-Type': 'application/json',}
   };
 
   if (params) {
@@ -36,7 +31,6 @@ async function logingAndGetJwt(url, params, method = 'POST') {
   const response = await fetch(url, options);
   if (response.status !== 200) return errorHandler(response);
   const result = await response.text();
-  debugger;
   return result;
 }
 
