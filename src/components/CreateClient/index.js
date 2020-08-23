@@ -1,12 +1,12 @@
 import React from 'react';
-import {Button, Typography} from '@material-ui/core';
 import styled from 'styled-components';
 import FormTextField from 'components/Form/Input';
+import { Button, Typography } from '@material-ui/core';
 import { CloudUpload, Delete } from '@material-ui/icons';
-import { Form, Field } from 'react-final-form'
+import { Form, Field } from 'react-final-form';
 import { required, composeValidators, mustBeNumber, validPhoneNumber } from '../Form/validations';
 import { CLIENTS_API } from 'utils/api';
-import { formatData } from './ultis';
+import Fetch from 'services/FetchService';
 
 const StyledForm = styled.form`
   align-items: center;
@@ -26,29 +26,15 @@ function createClientForm({subscription}) {
   const onSubmit = async (values, form) => {
     await sleep(300)
     debugger;
-    window.alert(JSON.stringify(values, 0, 2));
     createClient(values, form);
   }
 
-  function createClient(values, form) {
-    const fortmatedClientValues = formatData(values);
-    const parsedValues = JSON.stringify(fortmatedClientValues);
+  async function createClient(values, form) {
     debugger;
-
-    fetch(CLIENTS_API, {
-      method: 'POST',
-      body: parsedValues,
-      headers: { 'Content-Type': 'application/json',},
-      }).then(response => response.json())
-      .catch((error) => { throw error; });
-      debugger;
-      form.reset(form.initialValues);
-    }
-
-  // useEffect(() => {
-  // }, [])
-
-  // const onSumbit = { restart } => setTimeout(() => restart())
+    const request = await Fetch.post(CLIENTS_API, values);
+    debugger;
+    if (request.status == 200) form.reset(form.initialValues);
+  }
 
   return(
     <Form
@@ -59,7 +45,7 @@ function createClientForm({subscription}) {
         <Typography variant="h2">
           Ingresa los datos del cliente
         </Typography>
-        <Field name="firstName" component={FormTextField} label='Nombre y Apellidos' type='text' validate={required} />
+        <Field name="name" component={FormTextField} label='Nombre y Apellidos' type='text' validate={required} />
         <Field name="mail" component={FormTextField} label='Correo Electronico' type='text' validate={required} />
         <Field name="phone" component={FormTextField} label='Telefono' type='number' validate={composeValidators(required, mustBeNumber, validPhoneNumber)}/>
         <Field name="address" component={FormTextField} label='Dirección' type='text' multiline rows={4} validate={required} />
