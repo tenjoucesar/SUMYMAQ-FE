@@ -15,7 +15,6 @@ export const logout = () => localStorage.removeItem(tokenKey);
 
 export const getJwt = () => localStorage.getItem(tokenKey);
 
-
 export function getCurrentUser() {
   try {
     const jwt = localStorage.getItem(tokenKey);
@@ -24,7 +23,6 @@ export function getCurrentUser() {
     return null;
   }
 }
-
 
 export default {
   login,
