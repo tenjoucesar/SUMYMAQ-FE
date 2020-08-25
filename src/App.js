@@ -10,6 +10,7 @@ import Logout from 'containers/Logout';
 import ProtectedRoute from 'components/ProtectedRoute';
 import CreateClientForm from 'components/CreateClient';
 import PreliminaryInspection from 'containers/PreliminaryInspection';
+
 function App() {
   return (
     <Router>
