@@ -7,6 +7,7 @@ import { Form, Field } from 'react-final-form';
 import { required, composeValidators, mustBeNumber, validPhoneNumber } from 'components/Form/validations';
 import { CLIENTS_API } from 'utils/api';
 import Fetch from 'services/FetchService';
+import FormRadioGroup from 'components/Form/RadioGroup';
 
 const StyledForm = styled.form`
   align-items: center;
@@ -25,7 +26,7 @@ const StyledButton = styled(Button)`
 const InputsContainers = styled.div`
   justify-content: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 `;
 
@@ -53,27 +54,20 @@ function createClientForm({subscription}) {
       <StyledForm onSubmit={handleSubmit}>
         <InputsContainers>
         <Typography variant="h2" style={{textAlign: 'center'}}>
-          Ingresa los datos del Equipo
+          Inspeccion Preliminar
         </Typography>
-          <Field name="type" component={MiniFormTextField} label='Tipo de Equipo' type='text' required validate={required} />
-          <Field name="marca" component={MiniFormTextField} label='Marca' type='text' required validate={required} />
-          <Field name="model" component={MiniFormTextField} label='Modelo' type='number' required validate={composeValidators(required, mustBeNumber, validPhoneNumber)}/>
-          <Field name="typo" component={MiniFormTextField} label='Typo' type='text' required validate={required} />
-          <Field name="serie" component={MiniFormTextField} label='Serie' type='text' required validate={required} />
-          <Field name="class" component={MiniFormTextField} label='Clase' type='text' required validate={required} />
-          <Field name="letterDesign" component={MiniFormTextField} label='Letra Diseño' type='text' required validate={required} />
-          <Field name="power" component={MiniFormTextField} label='Potencia' type='text' required validate={required} />
-          <Field name="voltage" component={MiniFormTextField} label='Voltaje' type='text' required validate={required} />
-          <Field name="amperage" component={MiniFormTextField} label='Amperaje' type='text' required validate={required} />
-          <Field name="r.p.m" component={MiniFormTextField} label='R.P.M' type='text' required validate={required} />
-          <Field name="frame" component={MiniFormTextField} label='Frame' type='text' required validate={required} />
-          <Field name="frecuence" component={MiniFormTextField} label='Frecuencia' type='text' required validate={required} />
-          <Field name="serviceFact" component={MiniFormTextField} label='Factor de Servicio' type='text' required validate={required} />
-          <Field name="codeLetter" component={MiniFormTextField} label='Codigo Letra' type='text' required validate={required} />
-          <Field name="serialNumber" component={MiniFormTextField} label='Numero Serie' type='text' required validate={required} />
+          <Field name="type" component={FormRadioGroup} label='Placa de datos en buenas condiciones' type="radio"  required validate={required} />
+          <Field name="type" component={FormRadioGroup} label='Carcaza del motor en buenas condiciones' type="radio"  required validate={required} />
+          <Field name="type" component={FormRadioGroup} label='Caja de conexiones en buenas condiciones' type="radio"  required validate={required} />
+          <Field name="type" component={FormRadioGroup} label='Trae Bornera' type="radio"  required validate={required} />
+          <Field name="type" component={FormRadioGroup} label='La bornera se encuentra en buenas condiciones' type="radio"  required validate={required} />
+          <Field name="type" component={FormRadioGroup} label='Trae abanico' type="radio"  required validate={required} />
+          <Field name="type" component={FormRadioGroup} label='El abanico se encuentra en buenas condiciones' type="radio"  required validate={required} />
+          Trae abanico
         </InputsContainers>
+
         <div>
-          <Field name="other" component={MiniFormTextField} label='Otros Datos' multiline rows={3} type='text' required validate={required} />
+          <Field name="Observations" component={MiniFormTextField} label='Observaciones' multiline rows={3} type='text' required validate={required} />
         </div>
         <div>
           <StyledButton

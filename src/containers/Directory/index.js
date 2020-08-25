@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import SideNavigationBar from 'components/SideNavigationBar';
 import StepsIndicator from 'components/StepsIndicator';
 import CreateClientForm from 'components/CreateClient';
 import ClientsList from 'components/ClientsList';
@@ -39,13 +38,11 @@ function Directory () {
         </>
     )
   }
+
   return (
-    <div   style={{display: 'flex', }}>
-      <SideNavigationBar/>
-      <div>
-        <StepsIndicator />
-        {displayClientContent()}
-      </div>
+    <div>
+      <StepsIndicator />
+      {displayClientContent()}
     </div>
   );
 }

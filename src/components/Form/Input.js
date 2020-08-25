@@ -25,5 +25,31 @@ const FormTextField = ({
     variant="outlined"
     value={value}
   />
-)
+);
+
 export default FormTextField;
+
+const StyledMiniTextInput = styled(StyledTextInput)`
+  margin: 15px 30px;
+  width: 200px;
+`;
+
+export const MiniFormTextField = ({
+  input: { name, onChange, value, ...restInput },
+  meta,
+  label,
+  ...rest
+}) => (
+  <StyledMiniTextInput
+    {...rest}
+    name={name && name}
+    helperText={meta.touched && meta.error? meta.error : undefined}
+    error={meta.error && meta.touched}
+    inputProps={restInput}
+    onChange={onChange}
+    label={label}
+    id="outlined-basic"
+    variant="outlined"
+    value={value}
+  />
+);

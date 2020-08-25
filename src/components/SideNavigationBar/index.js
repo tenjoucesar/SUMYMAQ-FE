@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import LinkItem from 'components/LinkItem';
 import Modal from 'components/Modal';
 
-const SideBarContainer = styled.div`
+const SideBarContainer = styled.nav`
   border-right: 1px solid rgba(0, 0, 0, 0.12);
   padding-top: 100px;
   height: 100vh;
@@ -19,7 +19,7 @@ const StyledButton = styled(Button)`
 `;
 
 const SideNavigationBar = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -28,9 +28,9 @@ const SideNavigationBar = () => {
       <Modal open={open} handleClose={handleClose} />
       <Divider />
       <List>
-        <LinkItem linkReference='/clients' label='Crear Cliente' icon={PersonAdd} />
+        <LinkItem linkReference='/clients/create' label='Crear Cliente' icon={PersonAdd} />
         <LinkItem linkReference='/reports' label='Crear Reporte' icon={NoteAdd} />
-        <LinkItem linkReference='/proforma' label='Crear Proforma' icon={NoteAdd} />
+        <LinkItem linkReference='/preliminaryInspection' label='Inspeccion Preliminar' icon={NoteAdd} />
       </List>
       <Divider />
       <List>
