@@ -1,21 +1,46 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MiniFormTextField } from 'components/Form/Input';
-import { Button, Typography } from '@material-ui/core';
+import { Button, Typography, Paper } from '@material-ui/core';
 import { CloudUpload, Delete } from '@material-ui/icons';
 import { Form, Field } from 'react-final-form';
 import { required, composeValidators, mustBeNumber, validPhoneNumber } from 'components/Form/validations';
 import { CLIENTS_API } from 'utils/api';
 import Fetch from 'services/FetchService';
 
+const Container = styled(Paper)`
+  padding: 0 10px 15px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  border-radius: 6px;
+`;
+
+const MainContainer = styled.div`
+  margin-top: 50px;
+  padding: 0 30px;
+  width: 100%;
+  overflow
+`;
+
+const TitleContainer = styled.div`
+  background: linear-gradient(60deg, #ec407a, #d81b60);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(233, 30, 99,.4);
+  display: inline-block;
+  padding: 30px 20px;
+  border-radius: 9px;
+  margin-top: -30px;
+  color: #fff;
+`;
+
 const StyledForm = styled.form`
   align-items: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: column;
   padding: 20px 0;
   margin: 0 auto;
   width: 70vw;
+  max-height: 600px;
+  overflow-y: scroll;
 `;
 
 const StyledButton = styled(Button)`
@@ -46,15 +71,19 @@ function createClientForm({subscription}) {
   }
 
   return(
+    <MainContainer>
+    <Container elevation={3}>
+      <TitleContainer>
+        <Typography variant="h5" color="inherit">
+          Ingresa los datos del cliente
+        </Typography>
+      </TitleContainer>
     <Form
     onSubmit={onSubmit}
     subscription={subscription}
     render={({ handleSubmit, form, submitting, pristine, values }) => (
       <StyledForm onSubmit={handleSubmit}>
         <InputsContainers>
-        <Typography variant="h2" style={{textAlign: 'center'}}>
-          Ingresa los datos del Equipo
-        </Typography>
           <Field name="type" component={MiniFormTextField} label='Tipo de Equipo' type='text' required validate={required} />
           <Field name="marca" component={MiniFormTextField} label='Marca' type='text' required validate={required} />
           <Field name="model" component={MiniFormTextField} label='Modelo' type='number' required validate={composeValidators(required, mustBeNumber, validPhoneNumber)}/>
@@ -101,6 +130,8 @@ function createClientForm({subscription}) {
       </StyledForm>
     )}
   />
+    </Container>
+  </MainContainer>
   )
 }
 

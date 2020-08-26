@@ -8,14 +8,18 @@ const StyledListItem = styled(ListItem)`
 `;
 
 const StyledLinkItem = styled(NavLink)`
-  color: #000000;
+  color: inherit;
   text-decoration: none;
+`;
+
+const StyledListItemIcon = styled(ListItemIcon)`
+  color: inherit;
 `;
 
 const LinkItem = ({linkReference, label, icon }) => (
   <StyledLinkItem to={linkReference}>
     <StyledListItem button key={label}>
-      <ListItemIcon> <Icon component={icon} fontSize="large" /> </ListItemIcon>
+      <StyledListItemIcon> <Icon component={icon} fontSize="large" /> </StyledListItemIcon>
       <ListItemText primary={label} />
     </StyledListItem>
   </StyledLinkItem>

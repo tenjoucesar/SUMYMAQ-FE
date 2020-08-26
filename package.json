@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -12,12 +15,12 @@
     "final-form": "^4.20.1",
     "fontsource-roboto": "^3.0.3",
     "jwt-decode": "^2.2.0",
+    "mui-rff": "^2.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-final-form": "^6.5.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.2",
-    "react-transition-group": "^4.4.1",
     "styled-components": "^5.1.1"
   },
   "scripts": {
