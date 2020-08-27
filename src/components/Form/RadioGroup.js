@@ -6,9 +6,8 @@ import { Radios } from 'mui-rff';
 const Container = styled(Paper)`
   width: 300px;
   margin: 15px;
-  height: 130px;
-  padding: 15px 10px;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  height: 120px;
+  padding: 15px 10px 0;
   border-radius: 6px;
   background: #FFF;
 `;

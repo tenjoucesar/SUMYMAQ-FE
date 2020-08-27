@@ -1,34 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import FormTextField from 'components/Form/Input';
-import { Button, Typography, Paper } from '@material-ui/core';
+import Fetch from 'services/FetchService';
+import BoxContainer from 'sharedComponents/BoxContainer';
+import { Button } from '@material-ui/core';
 import { CloudUpload, Delete } from '@material-ui/icons';
 import { Form, Field } from 'react-final-form';
 import { required, composeValidators, mustBeNumber, validPhoneNumber } from '../Form/validations';
 import { CLIENTS_API } from 'utils/api';
-import Fetch from 'services/FetchService';
-
-const Container = styled(Paper)`
-  padding: 0 10px 15px;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-  border-radius: 6px;
-`;
-
-const MainContainer = styled.div`
-  margin-top: 50px;
-  padding: 30px;
-  width: 100%;
-`;
-
-const TitleContainer = styled.div`
-  background: linear-gradient(60deg, #ec407a, #d81b60);
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0,.14), 0 7px 10px -5px rgba(233, 30, 99,.4);
-  display: inline-block;
-  padding: 30px 20px;
-  border-radius: 9px;
-  margin-top: -30px;
-  color: #fff;
-`;
 
 const StyledForm = styled.form`
   align-items: center;
@@ -43,7 +22,7 @@ const StyledButton = styled(Button)`
 `;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-function createClientForm({subscription}) {
+function createClientIndepentForm({subscription}) {
 
   const onSubmit = async (values, form) => {
     await sleep(300)
@@ -59,13 +38,7 @@ function createClientForm({subscription}) {
   }
 
   return(
-    <MainContainer>
-      <Container elevation={3}>
-        <TitleContainer>
-          <Typography variant="h5" color="inherit">
-            Ingresa los datos del cliente
-          </Typography>
-        </TitleContainer>
+    <BoxContainer title='Ingresa los datos del cliente'>
       <Form
       onSubmit={onSubmit}
       subscription={subscription}
@@ -101,9 +74,8 @@ function createClientForm({subscription}) {
         </StyledForm>
       )}
     />
-    </Container>
-  </MainContainer>
+  </BoxContainer>
   )
 }
 
-export default createClientForm;
+export default createClientIndepentForm;

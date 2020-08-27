@@ -65,7 +65,7 @@ const BG = styled.div`
 `;
 
 const StyledButton = styled(Button)`
-  margin: 40px 20px;
+  margin: 20px 20px 0;
 `;
 
 const SideNavigationBar = () => {
@@ -74,35 +74,38 @@ const SideNavigationBar = () => {
   const handleClose = () => setOpen(false);
 
   return (
-  <FullContainer>
+    <FullContainer>
       <SideBarContainer>
-      <Modal open={open} handleClose={handleClose} />
-      <Divider />
-      <List>
-        <LinkItem linkReference='/clients/create' label='Crear Cliente' icon={PersonAdd} />
-        <LinkItem linkReference='/reports' label='Crear Reporte' icon={NoteAdd} />
-        <LinkItem linkReference='/preliminaryInspection' label='Inspeccion Preliminar' icon={NoteAdd} />
-      </List>
-      <Divider />
-      <List>
-        <LinkItem linkReference='/clients' label='Buscar Cliente' icon={Contacts} />
-        <LinkItem linkReference='/first' label='Buscar Reporte' icon={FindInPage} />
-        <LinkItem linkReference='/second' label='Buscar Proforma' icon={FindInPage} />
-      </List>
+        <Modal open={open} handleClose={handleClose} />
+        <Divider />
+        <List>
+          <LinkItem linkReference='/clients/create' label='Crear Cliente' icon={PersonAdd} />
+          <LinkItem linkReference='/reports/create' label='Crear Reporte' icon={NoteAdd} />
+          {/* <LinkItem linkReference='/preliminaryInspection' label='Inspeccion Preliminar' icon={NoteAdd} />
+        <LinkItem linkReference='/failureCauses' label='Causas del Fallo' icon={NoteAdd} />
+        <LinkItem linkReference='/electricalData' label='Datos Electricos' icon={NoteAdd} /> */}
+        </List>
+        <Divider />
+        <List>
+          <LinkItem linkReference='/clients' label='Buscar Cliente' icon={Contacts} />
+          <LinkItem linkReference='/reports' label='Buscar Reportes' icon={Contacts} />
+          {/* <LinkItem linkReference='/first' label='Buscar Reporte' icon={FindInPage} />
+        <LinkItem linkReference='/second' label='Buscar Proforma' icon={FindInPage} /> */}
+        </List>
         <StyledButton
           variant="contained"
           color="secondary"
           size="large"
-          endIcon={<ExitToApp/>}
+          endIcon={<ExitToApp />}
           type="submit"
           onClick={handleOpen}
-          >
+        >
           Desconectarme
         </StyledButton>
-  </SideBarContainer>
+      </SideBarContainer>
 
-  <BG style={{backgroundImage:  `url(${bgImage})`}}/>
-          </FullContainer>
+      <BG style={{ backgroundImage: `url(${bgImage})` }} />
+    </FullContainer>
   )
 }
 

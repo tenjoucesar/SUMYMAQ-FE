@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import StepsIndicator from 'components/StepsIndicator';
-import CreateClientForm from 'components/CreateClient';
+import CreateClientIndepentForm from 'components/CreateClientIndependtForm';
 import ClientsList from 'components/ClientsList';
 import { Button } from '@material-ui/core';
 
@@ -11,7 +10,7 @@ function Directory () {
     if (visibleClientForm) {
       return (
         <>
-          <CreateClientForm subscription={{ submitting: true, pristine: true }}/>
+          <CreateClientIndepentForm subscription={{ submitting: true, pristine: true }}/>
             <Button
               variant='contained'
               color='secondary'
@@ -41,7 +40,6 @@ function Directory () {
 
   return (
     <div>
-      <StepsIndicator />
       {displayClientContent()}
     </div>
   );

@@ -12,3 +12,45 @@ export const AlignedCenteredContainer = ({ className = '', children }) => (
     {children}
   </AlignedCenteredContainerStyled>
 );
+
+const FormContainerStyled = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px auto;
+`;
+
+export const FormContainer = ({ className = '', children }) => (
+  <FormContainerStyled className={className}>
+    {children}
+  </FormContainerStyled>
+);
+
+const ScrollableFormContainerStyled = styled(FormContainer)`
+  flex-wrap: nowrap;
+  padding: 20px 0;
+  margin: 0 auto;
+  width: 70vw;
+  max-height: 600px;
+  overflow-y: scroll;
+`;
+
+export const ScrollableFormContainer = ({ className = '', children }) => (
+  <ScrollableFormContainerStyled className={className}>
+    {children}
+  </ScrollableFormContainerStyled>
+);
+
+const InputsContainerStyled = styled.div`
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+export const InputsContainer = ({ className = '', children }) => (
+  <InputsContainerStyled className={className}>
+    {children}
+  </InputsContainerStyled>
+);
