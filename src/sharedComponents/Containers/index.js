@@ -32,7 +32,7 @@ const ScrollableFormContainerStyled = styled(FormContainer)`
   padding: 20px 0;
   margin: 0 auto;
   width: 70vw;
-  max-height: 600px;
+  max-height: 400px;
   overflow-y: scroll;
 `;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Wizard from 'components/Wizard';
 import CreateClientForm from 'forms/CreateClient';
-import EquipmentDataForm from 'forms/EquipmentData';
+import EngineDataForm from 'forms/EngineData';
 import PreliminaryInspection from 'forms/PreliminaryInspection';
 import FailureCauses from 'forms/FailureCauses';
 import ElectricalDataForm from 'forms/ElectricalData';
@@ -22,7 +22,7 @@ const ReportsWizard = () => {
         <CreateClientForm subscription={{ submitting: true, pristine: true }}/>
       </Wizard.Page>
       <Wizard.Page>
-        <EquipmentDataForm subscription={{ submitting: true, pristine: true }}/>
+        <EngineDataForm subscription={{ submitting: true, pristine: true }}/>
       </Wizard.Page>
       <Wizard.Page>
         <PreliminaryInspection subscription={{ submitting: true, pristine: true }}/>

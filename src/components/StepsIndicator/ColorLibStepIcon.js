@@ -1,7 +1,5 @@
 import React from 'react'
-import SettingsIcon from '@material-ui/icons/Settings';
-import GroupAddIcon from '@material-ui/icons/GroupAdd';
-import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import { Filter1, Filter2, Filter3, Filter4, Filter5, Done } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -34,9 +32,12 @@ function ColorlibStepIcon(props) {
   const { active, completed } = props;
 
   const icons = {
-    1: <SettingsIcon />,
-    2: <GroupAddIcon />,
-    3: <VideoLabelIcon />,
+    1: <Filter1 />,
+    2: <Filter2 />,
+    3: <Filter3 />,
+    4: <Filter4 />,
+    5: <Filter5 />,
+    6: <Done />,
   };
 
   return (

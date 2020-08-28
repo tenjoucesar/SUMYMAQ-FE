@@ -88,7 +88,7 @@ const SideNavigationBar = () => {
         <Divider />
         <List>
           <LinkItem linkReference='/clients' label='Buscar Cliente' icon={Contacts} />
-          <LinkItem linkReference='/reports' label='Buscar Reportes' icon={Contacts} />
+          <LinkItem linkReference='/reports' label='Buscar Reportes' icon={FindInPage} />
           {/* <LinkItem linkReference='/first' label='Buscar Reporte' icon={FindInPage} />
         <LinkItem linkReference='/second' label='Buscar Proforma' icon={FindInPage} /> */}
         </List>
