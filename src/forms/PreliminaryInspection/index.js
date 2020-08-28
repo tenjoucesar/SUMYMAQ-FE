@@ -4,7 +4,7 @@ import { ScrollableFormContainer, InputsContainer } from 'sharedComponents/Conta
 import { formFields } from './fields';
 
 const PreliminaryInspectionForm = () => (
-  <BoxContainer title='Ingresa los datos de la inspeccion preliminar'>
+  <BoxContainer title='Ingresa los datos Electricos Preliminares'>
     <ScrollableFormContainer >
       <InputsContainer>
         {formFields.map((item, idx) => <div key={idx}>{item}</div>)}

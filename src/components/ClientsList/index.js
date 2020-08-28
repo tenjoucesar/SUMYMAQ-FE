@@ -1,42 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { ListItem, ListItemAvatar, Avatar, ListItemText, List, Typography } from '@material-ui/core';
-import { CLIENTS_API } from 'utils/api';
+import React from 'react'
+import { Avatar, Container, Typography, Card, CardContent, Paper } from '@material-ui/core';
+
 import WorkIcon from '@material-ui/icons/Work';
-import Fetch from 'services/FetchService';
 
-function ClientsList() {
-  const [clients, setClients] = useState([]);
-
-  useEffect(() => {
-    async function fetchClients() {
-      const results = await Fetch.get(CLIENTS_API);
-      setClients(results);
-    }
-    fetchClients();
-  }, [])
-
-  const displayClients = () => clients.map((client) => (
-    <ListItem key={client._id}>
-      <ListItemAvatar >
-        <Avatar >
-          <WorkIcon />
-        </Avatar>
-      </ListItemAvatar>
-      <ListItemText primary={client.name} />
-    </ListItem>
-  ));
-
-  return (
-    <>
-      <Typography variant='h3'>
-        Busca el cliente aca
+const ClientsList = ({ clients }) => (
+  <Container maxWidth="lg">
+    <Typography variant='h3'>
+      Lista de Clientes
       </Typography>
-      <List>
-        {!!clients.length && displayClients()}
-      </List>
-    </>
-  );
-}
+    {clients.map((client) => (
+      <Paper style={{ margin: 20, width: 230, display: 'inline-block' }} elevation={3} key={client._id} >
+        <Card >
+          <CardContent>
+            <Avatar >
+              <WorkIcon />
+              )
+          </Avatar>
+            <Typography variant="h5" component="h2">{client.name}</Typography>
+          </CardContent>
+        </Card>
+      </Paper>
+    ))}
+  </Container>
+);
 
 
 export default ClientsList;

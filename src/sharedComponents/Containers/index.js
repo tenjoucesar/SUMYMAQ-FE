@@ -13,18 +13,21 @@ export const AlignedCenteredContainer = ({ className = '', children }) => (
   </AlignedCenteredContainerStyled>
 );
 
-const FormContainerStyled = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 15px auto;
-`;
+const formStyles = `align-items: center; display: flex; flex-direction: column; justify-content: center; margin: 15px auto;`
+
+const FormContainerStyled = styled.div`${formStyles}`;
+const IndependtFormContainerStyled = styled.form`${formStyles}`;
 
 export const FormContainer = ({ className = '', children }) => (
   <FormContainerStyled className={className}>
     {children}
   </FormContainerStyled>
+);
+
+export const IndependtFormContainer = ({ className = '', children }) => (
+  <IndependtFormContainerStyled className={className}>
+    {children}
+  </IndependtFormContainerStyled>
 );
 
 const ScrollableFormContainerStyled = styled(FormContainer)`
@@ -47,6 +50,7 @@ const InputsContainerStyled = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 400px;
 `;
 
 export const InputsContainer = ({ className = '', children }) => (

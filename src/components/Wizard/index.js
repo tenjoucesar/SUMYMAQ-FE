@@ -5,6 +5,7 @@ import StepsIndicator from 'components/StepsIndicator';
 import { Form } from 'react-final-form';
 import { Button } from '@material-ui/core';
 import { CloudUpload, NavigateBefore, NavigateNext } from '@material-ui/icons';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 const WizardButton = styled(Button)`
   margin: 20px;
@@ -16,7 +17,7 @@ const WizardButton = styled(Button)`
 const StyledForm = styled.form`
   border-radius: 6px;
   margin: 10px auto 20px;
-  padding: 0 30px 5px;
+  padding: 0 20px 5px;
 `
 
 export default class Wizard extends React.Component {
@@ -76,14 +77,22 @@ export default class Wizard extends React.Component {
     return (
       <div>
         <StepsIndicator page={page} />
-      `  <Form
+        <Form
           initialValues={values}
           validate={this.validate}
           onSubmit={this.handleSubmit}
         >
           {({ handleSubmit, submitting, values }) => (
             <StyledForm onSubmit={handleSubmit}>
-              {activePage}
+              <SwitchTransition>
+                <CSSTransition
+                  key={page}
+                  addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
+                  classNames='fade'
+                >
+                  {activePage}
+                </CSSTransition>
+              </SwitchTransition>
               <div className="buttons">
                 {page > 0 && (
                   <WizardButton

@@ -3,19 +3,12 @@ import styled from 'styled-components';
 import FormTextField from 'components/Form/Input';
 import Fetch from 'services/FetchService';
 import BoxContainer from 'sharedComponents/BoxContainer';
+import { IndependtFormContainer } from 'sharedComponents/Containers';
 import { Button } from '@material-ui/core';
 import { CloudUpload, Delete } from '@material-ui/icons';
 import { Form, Field } from 'react-final-form';
 import { required, composeValidators, mustBeNumber, validPhoneNumber } from '../Form/validations';
 import { CLIENTS_API } from 'utils/api';
-
-const StyledForm = styled.form`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 15px auto;
-`;
 
 const StyledButton = styled(Button)`
   margin: 20px;
@@ -43,7 +36,7 @@ function createClientIndepentForm({subscription}) {
       onSubmit={onSubmit}
       subscription={subscription}
       render={({ handleSubmit, form, submitting, pristine, values }) => (
-        <StyledForm onSubmit={handleSubmit}>
+        <IndependtFormContainer onSubmit={handleSubmit}>
           <Field name="name" component={FormTextField} label='Nombre y Apellidos' type='text' required validate={required} />
           <Field name="mail" component={FormTextField} label='Correo Electronico' type='text' required validate={required} />
           <Field name="phone" component={FormTextField} label='Telefono' type='number' required validate={composeValidators(required, mustBeNumber, validPhoneNumber)}/>
@@ -71,7 +64,7 @@ function createClientIndepentForm({subscription}) {
               Reset
             </StyledButton>
           </div>
-        </StyledForm>
+        </IndependtFormContainer>
       )}
     />
   </BoxContainer>
