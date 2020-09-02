@@ -1,14 +1,16 @@
 import React from 'react';
 import BoxContainer from 'sharedComponents/BoxContainer';
-import { ScrollableFormContainer, InputsContainer } from 'sharedComponents/Containers';
-import { formFields } from './fields';
+import { ScrollableFormContainer, FixedHeigthInputsContainer } from 'sharedComponents/Containers';
+import { Typography }from '@material-ui/core';
+import { ElectricFields, MainFields } from './fields';
 
 const EngineDataForm = () => (
   <BoxContainer title='Ingresa los datos del Equipo'>
     <ScrollableFormContainer>
-      <InputsContainer>
-        {formFields.map((item, idx) => <div key={idx}>{item}</div>)}
-      </InputsContainer>
+      <FixedHeigthInputsContainer>
+        <MainFields />
+        <ElectricFields />
+      </FixedHeigthInputsContainer>
     </ScrollableFormContainer>
   </BoxContainer>
 );

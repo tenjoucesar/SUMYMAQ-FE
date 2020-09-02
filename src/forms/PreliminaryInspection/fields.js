@@ -27,23 +27,23 @@ import { Field } from 'react-final-form';
 // ];
 
 export const formFields = [
-  <FormRadioGroup name="preliminaryInspection.plateInGoodCondition" label="Placa de datos en buenas condiciones" />,
-  <FormRadioGroup name="preliminaryInspection.HousingInGoodCondition" label="Carcaza del motor en buenas condiciones" />,
-  <FormRadioGroup name="preliminaryInspection.hasTerminalBlock" label="Trae Bornera?" />,
+  <FormRadioGroup name="preliminaryInspection.plateInGoodCondition" label="Placa de datos en buenas condiciones" num={1} />,
+  <FormRadioGroup name="preliminaryInspection.HousingInGoodCondition" label="Carcaza del motor en buenas condiciones" num={2} />,
+  <FormRadioGroup name="preliminaryInspection.hasTerminalBlock" label="Trae Bornera?" num={3} />,
   <ConditionalField when="preliminaryInspection.hasTerminalBlock" is="true">
-    <FormRadioGroup name="preliminaryInspection.terminalBlockInGoodCondition" label="La bornera se encuentra en buenas condiciones?" />
+    <FormRadioGroup name="preliminaryInspection.terminalBlockInGoodCondition" label="La bornera se encuentra en buenas condiciones?" num={4} />,
   </ConditionalField>,
-  <FormRadioGroup name="preliminaryInspection.conecctionBoxInGoodCondition" label="Caja de conexiones en buenas condiciones" />,
-  <FormRadioGroup name="preliminaryInspection.hasFan" label="Trae Abanico?" />,
+  <FormRadioGroup name="preliminaryInspection.conecctionBoxInGoodCondition" label="Caja de conexiones en buenas condiciones" num={5} />,
+  <FormRadioGroup name="preliminaryInspection.hasFan" label="Trae Abanico?" num={6} />,
   <ConditionalField when="preliminaryInspection.hasFan" is="true">
-    <FormRadioGroup name="preliminaryInspection.fanInGoodCondition" label="Abanico en buenas condiciones" />,
+    <FormRadioGroup name="preliminaryInspection.fanInGoodCondition" label="Abanico en buenas condiciones" num={7} />,
   </ConditionalField>,
-  <FormRadioGroup name="preliminaryInspection.legsInGoodCondition" label="Las patas se encuentran en buenas condiciones?" />,
-  <FormRadioGroup name="preliminaryInspection.impellerInGoodCondition" label="El impulsor se encuentra en buenas condiciones?" />,
-  <FormRadioGroup name="preliminaryInspection.nucleusInGoodCondition" label="El nucleo esta en buenas condiciones?" />,
-  <FormRadioGroup name="preliminaryInspection.rotorInGoodCondition" label="El rotor esta en buenas condiciones?" />,
-  <FormRadioGroup name="preliminaryInspection.needsFillingAndRectification" label="Es necesario relleno y rectificación del rotor?" />,
-  <FormRadioGroup name="preliminaryInspection.CoversInGoodCondition" label="Las tapas se encuentran en buenas condiciones?" />,
-  <FormRadioGroup name="preliminaryInspection.coverNeedsJacket" label="Es necesario el encamisado de alguna tapa?" />,
-  <Field name="preliminaryInspection.Observations" component={MiniFormTextField} label='Observaciones' multiline rows={3} type='text' />,
+  <FormRadioGroup name="preliminaryInspection.legsInGoodCondition" label="Las patas se encuentran en buenas condiciones?" num={8} />,
+  <FormRadioGroup name="preliminaryInspection.impellerInGoodCondition" label="El impulsor se encuentra en buenas condiciones?" num={9} />,
+  <FormRadioGroup name="preliminaryInspection.nucleusInGoodCondition" label="El nucleo esta en buenas condiciones?" num={10} />,
+  <FormRadioGroup name="preliminaryInspection.rotorInGoodCondition" label="El rotor esta en buenas condiciones?" num={11} />,
+  <FormRadioGroup name="preliminaryInspection.needsFillingAndRectification" label="Es necesario relleno y rectificación del rotor?" num={12} />,
+  <FormRadioGroup name="preliminaryInspection.CoversInGoodCondition" label="Las tapas se encuentran en buenas condiciones?" num={13} />,
+  <FormRadioGroup name="preliminaryInspection.coverNeedsJacket" label="Es necesario el encamisado de alguna tapa?" num={14} />,
+  <Field name="preliminaryInspection.Observations" component={MiniFormTextField} label='Observaciones' multiline rows={3} type='text' num={15} />,
 ];

@@ -82,7 +82,7 @@ export default class Wizard extends React.Component {
           validate={this.validate}
           onSubmit={this.handleSubmit}
         >
-          {({ handleSubmit, submitting, values }) => (
+          {({ handleSubmit, submitting, values, pristine }) => (
             <StyledForm onSubmit={handleSubmit}>
               <SwitchTransition>
                 <CSSTransition
@@ -106,6 +106,7 @@ export default class Wizard extends React.Component {
                     Previous
                   </WizardButton>
                 )}
+                {/* {!isLastPage && page > 0 && */}
                 {!isLastPage &&
                   <WizardButton
                     variant="contained"
@@ -113,6 +114,7 @@ export default class Wizard extends React.Component {
                     size="large"
                     endIcon={<NavigateNext/>}
                     type="submit"
+                    // disabled={submitting || pristine}
                   >
                     Next
                   </WizardButton>
@@ -130,7 +132,7 @@ export default class Wizard extends React.Component {
                   </WizardButton>
                 )}
               </div>
-              <pre>{JSON.stringify(values, 0, 2)}</pre>
+              {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
             </StyledForm>
           )}
         </Form>`

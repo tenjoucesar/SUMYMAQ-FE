@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import BoxContainer from 'sharedComponents/BoxContainer';
-import { ScrollableFormContainer, InputsContainer } from 'sharedComponents/Containers';
+import { ScrollableFormContainer, FixedHeigthInputsContainer } from 'sharedComponents/Containers';
 import { formFields } from './fields';
 
-const AdjustedInputsContainer = styled(InputsContainer)`
+const AdjustedInputsContainer = styled(FixedHeigthInputsContainer)`
   flex-direction: column;
   flex-wrap: nowrap;
 `;

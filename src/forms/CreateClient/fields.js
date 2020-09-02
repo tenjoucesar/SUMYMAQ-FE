@@ -1,5 +1,5 @@
 import React from 'react'
-import FormTextField from 'components/Form/Input';
+import { FormTextField } from 'components/Form/Input';
 import { Field } from 'react-final-form';
 import { required, composeValidators, mustBeNumber, validPhoneNumber } from 'components/Form/validations';
 

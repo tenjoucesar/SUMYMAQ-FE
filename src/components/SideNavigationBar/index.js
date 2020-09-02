@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { List, Divider, Button } from '@material-ui/core';
-import { Contacts, FindInPage, NoteAdd, PersonAdd, ExitToApp } from '@material-ui/icons';
+import { Contacts, FindInPage, NoteAdd, PersonAdd, ExitToApp, Build } from '@material-ui/icons';
 import styled from 'styled-components';
 import LinkItem from 'components/LinkItem';
-import Modal from 'components/Modal';
+import LogoutModal from 'components/Modal';
 import bgImage from 'images/sidebar.jpg';
 
 const FullContainer = styled.div`
@@ -68,7 +68,7 @@ const StyledButton = styled(Button)`
   margin: 20px 20px 0;
 `;
 
-const SideNavigationBar = () => {
+function SideNavigationBar ()  {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -76,18 +76,18 @@ const SideNavigationBar = () => {
   return (
     <FullContainer>
       <SideBarContainer>
-        <Modal open={open} handleClose={handleClose} />
+        <LogoutModal open={open} handleClose={handleClose} />
         <Divider />
         <List>
           <LinkItem linkReference='/clients/create' label='Crear Cliente' icon={PersonAdd} />
           <LinkItem linkReference='/reports/create' label='Crear Reporte' icon={NoteAdd} />
+          <LinkItem linkReference='/repair/create' label='Generar Solicitud de Reparación' icon={Build} />
           {/* <LinkItem linkReference='/preliminaryInspection' label='Inspeccion Preliminar' icon={NoteAdd} />
-        <LinkItem linkReference='/failureCauses' label='Causas del Fallo' icon={NoteAdd} />
         <LinkItem linkReference='/electricalData' label='Datos Electricos' icon={NoteAdd} /> */}
         </List>
         <Divider />
         <List>
-          <LinkItem linkReference='/clients' label='Buscar Cliente' icon={Contacts} />
+          <LinkItem linkReference='/clients/find' label='Buscar Cliente' icon={Contacts} />
           <LinkItem linkReference='/reports' label='Buscar Reportes' icon={FindInPage} />
           {/* <LinkItem linkReference='/first' label='Buscar Reporte' icon={FindInPage} />
         <LinkItem linkReference='/second' label='Buscar Proforma' icon={FindInPage} /> */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import FormTextField from 'components/Form/Input';
+import { FormTextField } from 'components/Form/Input';
 import Fetch from 'services/FetchService';
 import BoxContainer from 'sharedComponents/BoxContainer';
 import { IndependtFormContainer } from 'sharedComponents/Containers';

@@ -1,44 +1,59 @@
-import React from 'react'
-import { MiniFormTextField } from 'components/Form/Input';
+import React from 'react';
+import styled from 'styled-components';
+import { FormTextField } from 'components/Form/Input';
 import { Field } from 'react-final-form';
-import { required, composeValidators, mustBeNumber, validPhoneNumber } from 'components/Form/validations';
+import { required, composeValidators, musnstBeNumber, validPhoneNumber } from 'components/Form/validations';
+import { Typography, Divider }from '@material-ui/core';
+import { InputsContainer } from 'sharedComponents/Containers';
 
-// const formFields = [
-//   <Field name="engine.type" component={MiniFormTextField} label='Tipo de Equipo' type='text' required validate={required} />,
-//   <Field name="engine.marca" component={MiniFormTextField} label='Marca' type='text' required validate={required} />,
-//   <Field name="engine.model" component={MiniFormTextField} label='Modelo' type='number' required validate={composeValidators(required, mustBeNumber, validPhoneNumber)} />,
-//   <Field name="engine.typo" component={MiniFormTextField} label='Typo' type='text' required validate={required} />,
-//   <Field name="engine.serie" component={MiniFormTextField} label='Serie' type='text' required validate={required} />,
-//   <Field name="engine.class" component={MiniFormTextField} label='Clase' type='text' required validate={required} />,
-//   <Field name="engine.letterDesign" component={MiniFormTextField} label='Letra Diseño' type='text' required validate={required} />,
-//   <Field name="engine.power" component={MiniFormTextField} label='Potencia' type='text' required validate={required} />,
-//   <Field name="engine.voltage" component={MiniFormTextField} label='Voltaje' type='text' required validate={required} />,
-//   <Field name="engine.amperage" component={MiniFormTextField} label='Amperaje' type='text' required validate={required} />,
-//   <Field name="engine.r.p.m" component={MiniFormTextField} label='R.P.M' type='text' required validate={required} />,
-//   <Field name="engine.frame" component={MiniFormTextField} label='Frame' type='text' required validate={required} />,
-//   <Field name="engine.frecuence" component={MiniFormTextField} label='Frecuencia' type='text' required validate={required} />,
-//   <Field name="engine.serviceFact" component={MiniFormTextField} label='Factor de Servicio' type='text' required validate={required} />,
-//   <Field name="engine.codeLetter" component={MiniFormTextField} label='Codigo Letra' type='text' required validate={required} />,
-//   <Field name="engine.serialNumber" component={MiniFormTextField} label='Numero Serie' type='text' required validate={required} />,
-//   <Field name="engine.other" component={MiniFormTextField} label='Otros Datos' multiline rows={3} type='text' required validate={required} />
-// ];
+const FieldTitle = styled(Typography)`
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.334;
+  letter-spacing: -0.05px;
+  text-align: center;
+  margin-bottom: 10px;
+`;
+
+const StyledDivider = styled(Divider)`
+  background-color: rgba(0, 0, 0, 0.22);
+  margin: 10px 0;
+`;
+
+export const MainFields = () => (
+  <div>
+    <FieldTitle> Datos Principales</FieldTitle>
+    <StyledDivider variant="middle"/>
+    <InputsContainer>
+      <Field name="engine.type" component={FormTextField} label='Tipo de Equipo' type='text' />
+      <Field name="engine.brand" component={FormTextField} label='Marca' type='text' />
+      <Field name="engine.model" component={FormTextField} label='Modelo' type='number' />
+      <Field name="engine.serie" component={FormTextField} label='Serie' type='text' />
+      <Field name="engine.class" component={FormTextField} label='Clase' type='text' />
+      <Field name="engine.typo" component={FormTextField} label='Typo' type='text' />
+      <Field name="engine.serialNumber" component={FormTextField} label='Numero Serie' type='text' />
+      <Field name="engine.designLetter" component={FormTextField} label='Letra Diseño' type='text' />
+    </InputsContainer>
+  </div>
+);
+
+export const ElectricFields = () => (
+<div>
+  <StyledDivider variant="middle" />
+  <FieldTitle>Datos Electricos</FieldTitle>
+  <InputsContainer>
+    <Field name="engine.power" component={FormTextField} label='Potencia' type='text' />
+    <Field name="engine.voltage" component={FormTextField} label='Voltaje' type='text' />
+    <Field name="engine.amperage" component={FormTextField} label='Amperaje' type='text' />
+    <Field name="engine.r.p.m" component={FormTextField} label='R.P.M' type='text' />
+    <Field name="engine.frame" component={FormTextField} label='Frame' type='text' />
+    <Field name="engine.frequency" component={FormTextField} label='Frecuencia' type='text' />
+    <Field name="engine.serviceFact" component={FormTextField} label='Factor de Servicio' type='text' />
+    <Field name="engine.letterCode" component={FormTextField} label='Codigo Letra' type='text' />
+    <Field name="engine.other" component={FormTextField} label='Otros Datos' multiline rows={3} type='text' />
+  </InputsContainer>
+</div>
+);
 
 export const formFields = [
-  <Field name="engine.type" component={MiniFormTextField} label='Tipo de Equipo' type='text' />,
-  <Field name="engine.marca" component={MiniFormTextField} label='Marca' type='text' />,
-  <Field name="engine.model" component={MiniFormTextField} label='Modelo' type='number' />,
-  <Field name="engine.typo" component={MiniFormTextField} label='Typo' type='text' />,
-  <Field name="engine.serie" component={MiniFormTextField} label='Serie' type='text' />,
-  <Field name="engine.class" component={MiniFormTextField} label='Clase' type='text' />,
-  <Field name="engine.letterDesign" component={MiniFormTextField} label='Letra Diseño' type='text' />,
-  <Field name="engine.power" component={MiniFormTextField} label='Potencia' type='text' />,
-  <Field name="engine.voltage" component={MiniFormTextField} label='Voltaje' type='text' />,
-  <Field name="engine.amperage" component={MiniFormTextField} label='Amperaje' type='text' />,
-  <Field name="engine.r.p.m" component={MiniFormTextField} label='R.P.M' type='text' />,
-  <Field name="engine.frame" component={MiniFormTextField} label='Frame' type='text' />,
-  <Field name="engine.frecuence" component={MiniFormTextField} label='Frecuencia' type='text' />,
-  <Field name="engine.serviceFact" component={MiniFormTextField} label='Factor de Servicio' type='text' />,
-  <Field name="engine.codeLetter" component={MiniFormTextField} label='Codigo Letra' type='text' />,
-  <Field name="engine.serialNumber" component={MiniFormTextField} label='Numero Serie' type='text' />,
-  <Field name="engine.other" component={MiniFormTextField} label='Otros Datos' multiline rows={3} type='text' />
 ];

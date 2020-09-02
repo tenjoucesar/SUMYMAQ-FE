@@ -8,6 +8,7 @@ import Signup from 'containers/Signup';
 import Logout from 'containers/Logout';
 import ProtectedRoute from 'components/ProtectedRoute';
 import ReportsWizard from 'containers/ReportFormsWizard';
+import RepairOrderWizard from 'containers/RepairOrdersWizard';
 import CreateClientIndepentForm from 'components/CreateClientIndependtForm';
 
 function App() {
@@ -15,10 +16,12 @@ function App() {
     <Router>
       <StylesProvider injectFirst>
         <Switch>
-          <Route path="/register" component={Signup} />
           <ProtectedRoute path="/reports/create" component={() => <ReportsWizard />} />
           <ProtectedRoute path="/clients/create" component={() => <CreateClientIndepentForm subscription={{ submitting: true, pristine: true }} />} />
-          <ProtectedRoute path="/clients" component={Directory} />
+          <ProtectedRoute path="/clients/find" component={Directory} />
+          <ProtectedRoute path="/repair/create" component={() => <RepairOrderWizard />} />
+          <ProtectedRoute path="/clients" component={() => <ReportsWizard />} />
+          <Route path="/register" component={Signup} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Login} />
         </Switch>

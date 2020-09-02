@@ -45,16 +45,35 @@ export const ScrollableFormContainer = ({ className = '', children }) => (
   </ScrollableFormContainerStyled>
 );
 
-const InputsContainerStyled = styled.div`
+const InpustContainerStyled = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 400px;
 `;
 
 export const InputsContainer = ({ className = '', children }) => (
-  <InputsContainerStyled className={className}>
+  <InpustContainerStyled className={className}>
     {children}
-  </InputsContainerStyled>
+  </InpustContainerStyled>
+);
+
+const FixedInputsContainerStyled = styled(InpustContainerStyled)`
+  height: 400px;
+`;
+
+export const FixedHeigthInputsContainer = ({ className = '', children }) => (
+  <FixedInputsContainerStyled className={className}>
+    {children}
+  </FixedInputsContainerStyled>
+);
+
+const BigInputsContainerStyled = styled.div`
+  height: 480px;
+`;
+
+export const BigInputsContainer = ({ className = '', children }) => (
+  <BigInputsContainerStyled className={className}>
+    {children}
+  </BigInputsContainerStyled>
 );

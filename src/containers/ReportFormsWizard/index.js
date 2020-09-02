@@ -1,6 +1,5 @@
 import React from 'react';
 import Wizard from 'components/Wizard';
-import CreateClientForm from 'forms/CreateClient';
 import CreateClientQuestion from 'containers/Directory';
 import EngineDataForm from 'forms/EngineData';
 import PreliminaryInspection from 'forms/PreliminaryInspection';
@@ -15,28 +14,26 @@ const onSubmit = async values => {
   window.alert(JSON.stringify(values, 0, 2))
 }
 
-const ReportsWizard = () => {
-  return (
-    <div>
-      <Wizard onSubmit={onSubmit} style={{margin: 'auto'}}>
-        <Wizard.Page>
-          <CreateClientQuestion subscription={{ submitting: true, pristine: true }}/>
-        </Wizard.Page>
-        <Wizard.Page>
-          <EngineDataForm subscription={{ submitting: true, pristine: true }}/>
-        </Wizard.Page>
-        <Wizard.Page>
-          <PreliminaryInspection subscription={{ submitting: true, pristine: true }}/>
-        </Wizard.Page>
-        <Wizard.Page>
-          <FailureCauses subscription={{ submitting: true, pristine: true }}/>
-        </Wizard.Page>
-        <Wizard.Page>
-          <ElectricalDataForm subscription={{ submitting: true, pristine: true }}/>
-        </Wizard.Page>
-      </Wizard>
-    </div>
-    );
-}
+const ReportsWizard = () => (
+  <div>
+    <Wizard onSubmit={onSubmit} style={{margin: 'auto'}}>
+      <Wizard.Page>
+        <CreateClientQuestion subscription={{ submitting: true, pristine: true }}/>
+      </Wizard.Page>
+      <Wizard.Page>
+        <EngineDataForm subscription={{ submitting: true, pristine: true }}/>
+      </Wizard.Page>
+      <Wizard.Page>
+        <PreliminaryInspection subscription={{ submitting: true, pristine: true }}/>
+      </Wizard.Page>
+      <Wizard.Page>
+        <FailureCauses subscription={{ submitting: true, pristine: true }}/>
+      </Wizard.Page>
+      <Wizard.Page>
+        <ElectricalDataForm subscription={{ submitting: true, pristine: true }}/>
+      </Wizard.Page>
+    </Wizard>
+  </div>
+);
 
 export default ReportsWizard;
