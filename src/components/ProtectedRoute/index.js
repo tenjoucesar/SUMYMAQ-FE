@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import Auth from "services/AuthService";
-
+import SideNavigationBar from 'components/SideNavigationBar';
 const ProtectedRoute = ({ path, component: Component, render, ...rest }) => (
   <Route
     {...rest}
@@ -15,7 +15,12 @@ const ProtectedRoute = ({ path, component: Component, render, ...rest }) => (
             }}
           />
         );
-      return Component ? <Component {...props} /> : null;
+      return Component ? (
+    <div style={{display: 'flex'}}>
+      <SideNavigationBar />
+      <Component {...props} />
+    </div>
+       ): null;
     }}
   />
 );

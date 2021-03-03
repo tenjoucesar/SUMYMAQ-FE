@@ -3,6 +3,8 @@ body {
   font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eee;
+  color: #3c4858;
 }
 
 code {
@@ -15,20 +17,19 @@ code {
   font-weight: 700;
 }
 
-.fade-enter {
+.fade-enter{
   opacity: 0;
-  z-index: 1;
 }
-
-.fade-enter.fade-enter-active {
+.fade-exit{
   opacity: 1;
-  transition: opacity 250ms ease-in;
 }
-
-.fill {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+.fade-enter-active{
+  opacity: 1;
+}
+.fade-exit-active{
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active{
+  transition: opacity 150ms;
 }

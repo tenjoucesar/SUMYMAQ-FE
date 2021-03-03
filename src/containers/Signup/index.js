@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Auth from 'services/AuthService';
+import { Redirect } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -48,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
-
+  if (Auth.getCurrentUser()) return <Redirect to="/clients" />;
   return (
     <Container   component="main" maxWidth="xs">
       <CssBaseline />

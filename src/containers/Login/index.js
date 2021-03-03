@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import FormTextField from 'components/Form/Input';
+import { FormTextField } from 'components/Form/Input';
 import Copyright from 'components/Copyright';
 import Auth from 'services/AuthService';
 
@@ -38,7 +38,7 @@ export default function Login({ subscription, location }) {
   const onSubmit = async (values) => {
     await sleep(300)
     try {
-      await Auth.login(values.mail, values.password);
+      await Auth.login(values.mail.toLowerCase(), values.password);
       const { state } = location;
       window.location = state ? state.from.pathname : "/clients";
     } catch (err) {
